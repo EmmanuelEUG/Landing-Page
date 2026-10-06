@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM - Smart Apiary Monitoring | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">IoT & Full-Stack Platform</span>
+            <h1 class="blog-title">SAM - Smart Apiary Monitoring System</h1>
+            <p class="blog-subtitle">
+                Plataforma integral de monitoreo IoT y gestión apícola con lectura de temperatura, humedad y peso en tiempo real, API RESTful en Javalin, backend Java multihilo, base de datos MySQL y dashboard web analítico.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Java 17</span>
+                    <span class="tech-badge-large">Javalin REST API</span>
+                    <span class="tech-badge-large">ESP32 IoT</span>
+                    <span class="tech-badge-large">MySQL</span>
+                    <span class="tech-badge-large">JavaScript ES6</span>
+                    <span class="tech-badge-large">Chart.js</span>
+                    <span class="tech-badge-large">BCrypt Auth</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/SAM-smart-apiary-monitoring-.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>SAM (Smart Apiary Monitoring)</strong> es una solución agrotecnológica diseñada para la apicultura moderna. Las colmenas de abejas son extremadamente sensibles a variaciones de temperatura, humedad interna y fluctuaciones drásticas de peso (indicadores de enjambrzón o producción de miel).
+                </p>
+                <p>
+                    SAM automatiza el flujo completo desde la captura de datos en el campo hasta la toma de decisiones empresariales:
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128280; Monitoreo Telemétrico IoT</h4>
+                        <p>Módulos ESP32 transmiten telemetría periódica de temperatura, humedad relativa y peso de cada colmena a través de HTTP/REST.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128200; Analytics y Diagnóstico</h4>
+                        <p>Visualización gráfica interactiva con producción por colmena, métricas promedio por temporada y sistema de alertas por umbrales desfigurados.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128221; Bitácora de Inspecciones</h4>
+                        <p>Gestión completa de visitas técnicas, registro de presencia de reina, estado sanitario del nudo y control de cosechas acumuladas.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128274; Seguridad Avanzada de Sesiones</h4>
+                        <p>Autenticación mediante cookies de sesión HTTP-only, cifrado de contraseñas con BCrypt y control de acceso basado en roles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Arquitectura desacoplada basada en microservicios ligeros con un backend estructurado en capas en <strong>Java + Javalin</strong>:
+                </p>
+                
+                <p><strong>1. Backend y API RESTful:</strong></p>
+                <p>
+                    Utilicé <strong>Javalin</strong> por su alto rendimiento e insignificante sobrecarga de memoria en comparación con frameworks tradicionales. El backend maneja controladores para autenticación, gestión de apiarios, lecturas de sensores, registros de inspección y cosechas.
+                </p>
+
+                <div class="code-block">
+// Ejemplo de controlador Javalin para lecturas de sensores
+app.get("/api/colmenas/{id}/lecturas", ctx -> {
+    int colmenaId = Integer.parseInt(ctx.pathParam("id"));
+    List&lt;LecturaSensor&gt; lecturas = sensorService.obtenerLecturas(colmenaId);
+    ctx.json(lecturas);
+});
+
+// Autenticación segura con BCrypt y cookies de sesión
+app.post("/api/auth/login", ctx -> {
+    LoginRequest req = ctx.bodyAsClass(LoginRequest.class);
+    User user = userService.authenticate(req.getUsername(), req.getPassword());
+    if (user != null) {
+        ctx.cookie("sam_session", user.getToken(), 86400); // 24h
+        ctx.json(Map.of("status", "success", "role", user.getRole()));
+    } else {
+        ctx.status(401).result("Credenciales inválidas");
+    }
+});
+                </div>
+
+                <p><strong>2. Base de Datos Relacional Optimizada:</strong></p>
+                <p>
+                    Diseñé el esquema relacional en <strong>MySQL</strong> indexando claves foráneas entre <code>usuarios</code>, <code>apiarios</code>, <code>colmenas</code>, <code>lecturas_sensores</code> y <code>cosechas</code>. Se crearon vistas agregadas para agilizar las consultas métricas en los dashboards.
+                </p>
+
+                <p><strong>3. Frontend Web Interactivo:</strong></p>
+                <p>
+                    Construido con HTML5 semántico, CSS3 modular con variables personalizadas y JavaScript asíncrono (Fetch API). Utiliza <strong>Chart.js</strong> para renderizar curvas de temperatura y peso temporal en tiempo real.
+                </p>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Impacto y Resultados</h2>
+                <p>
+                    SAM permite a los productores apícolas reducir hasta en un 40% las visitas de inspección física innecesarias a los apiarios, detectando problemas de salud en las colonias semanas antes de que sean irreversibles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

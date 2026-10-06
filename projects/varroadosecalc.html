@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VarroaDoseCalc | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Android & Agricultura de Precisión</span>
+            <h1 class="blog-title">VarroaDoseCalc — Calculadora de Tratamientos contra Varroa</h1>
+            <p class="blog-subtitle">
+                Aplicación Android nativa en Kotlin y Jetpack Compose que calcula automáticamente la dosis exacta de acaricidas para el control de Varroa destructor en colmenas, según las regulaciones sanitarias y el peso bruto de cada colmena.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Android Studio</span>
+                    <span class="tech-badge-large">Kotlin</span>
+                    <span class="tech-badge-large">Jetpack Compose</span>
+                    <span class="tech-badge-large">Material Design 3</span>
+                    <span class="tech-badge-large">ViewModel</span>
+                    <span class="tech-badge-large">StateFlow</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/VarroaDoseCalc.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>VarroaDoseCalc</strong> nació de una necesidad real en el campo apícola. La <em>Varroa destructor</em> es el parásito más devastador para las colonias de abejas a nivel mundial, y su tratamiento debe ser preciso: una dosis insuficiente no elimina el parásito y una sobredosis puede dañar a las abejas o contaminar la miel.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128290; Cálculo Preciso de Dosis</h4>
+                        <p>Determina la cantidad exacta de principio activo (ácido oxálico, timol, ácido fórmico u otros) según el peso registrado de la colmena y el método de tratamiento seleccionado.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#127811; Múltiples Métodos de Tratamiento</h4>
+                        <p>Compatible con los métodos más usados a nivel global: goteo sublimación, bandas acaricidas y vaporizadores de ácido oxálico.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128339; Guía Estacional de Aplicación</h4>
+                        <p>Sugiere el momento óptimo de tratamiento según la época del año, el ciclo de cría de la colonia y el nivel de infestación estimado.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128221; Historial de Aplicaciones</h4>
+                        <p>Registro de tratamientos anteriores por colmena para llevar una bitácora sanitaria completa del apiario.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Arquitectura <strong>MVVM</strong> con <strong>Jetpack Compose</strong> en un diseño completamente reactivo y desacoplado de la UI:
+                </p>
+
+                <p><strong>1. Modelo de Dominio y Lógica de Cálculo:</strong></p>
+                <p>
+                    El <code>TreatmentMethod.kt</code> encapsula cada método de tratamiento como un objeto tipado con su fórmula de cálculo, límites de dosificación mínimos y máximos, y unidades de medida. El <code>VarroaDoseCalcViewModel</code> expone el cálculo al Composable a través de <code>StateFlow</code>.
+                </p>
+
+                <div class="code-block">
+// TreatmentMethod.kt — Objeto de método de tratamiento
+sealed class TreatmentMethod(
+    val name: String,
+    val unit: String
+) {
+    data object OxalicAcidDrip : TreatmentMethod("Ácido Oxálico (Goteo)", "ml")
+    data object OxalicAcidSublimation : TreatmentMethod("Ácido Oxálico (Sublimación)", "g")
+    data object Thymol : TreatmentMethod("Timol", "g")
+
+    fun calculateDose(hiveWeightKg: Double): Double = when (this) {
+        is OxalicAcidDrip -> hiveWeightKg * 0.5      // 0.5 ml / kg de colmena
+        is OxalicAcidSublimation -> 2.0               // 2g fijos por tratamiento
+        is Thymol -> hiveWeightKg * 0.3
+    }
+}
+                </div>
+
+                <p><strong>2. UI Declarativa con Material Design 3:</strong></p>
+                <p>
+                    La pantalla principal (<code>VarroaDoseCalcScreen.kt</code>) usa componentes de Material 3 como <code>OutlinedTextField</code>, <code>DropdownMenu</code> y <code>ElevatedCard</code> con transiciones suaves de estado para mostrar el resultado del cálculo al instante.
+                </p>
+
+                <p><strong>3. Conexión directa con SAM:</strong></p>
+                <p>
+                    Este proyecto complementa el ecosistema del sistema <strong>SAM</strong> al proporcionar la herramienta de campo que los apicultores usan directamente en su teléfono durante las inspecciones presenciales en el apiario.
+                </p>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Impacto Real</h2>
+                <p>
+                    VarroaDoseCalc elimina los errores de cálculo manual que pueden comprometer la salud de una colonia completa. Al digitalizar la dosimetría de tratamientos, permite a los apicultores artesanales e industriales cumplir con las normativas sanitarias de la SENASICA (México) sin necesidad de conocimientos veterinarios avanzados.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Bueno, El Malo y El Pixeleado | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Desarrollo de Videojuegos C++</span>
+            <h1 class="blog-title">El Bueno, El Malo y El Pixeleado</h1>
+            <p class="blog-subtitle">
+                Videojuego de disparos arcade multijugador local en consola pura C++, diseñado para dos jugadores compitiendo simultáneamente en una matriz dinámica de 8x8 dentro del mismo teclado.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">C++11 / C++17</span>
+                    <span class="tech-badge-large">std::thread</span>
+                    <span class="tech-badge-large">std::chrono</span>
+                    <span class="tech-badge-large">Matriz Dinámica</span>
+                    <span class="tech-badge-large">Controlador de Consola</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/El-Bueno-El-Malo-y-El-Pixeleado.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>El Bueno, El Malo y El Pixeleado</strong> es un juego shooter táctico retro que demuestra el poder de la algoritmia básica y la programación estructurada en C++ sin depender de motores gráficos ni librerías pesadas externas.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#127918; Multijugador Local en el Mismo Teclado</h4>
+                        <p>Dos jugadores controlan sus personajes en tiempo real (Jugador 1 con WASD y Jugador 2 con Teclas de Dirección) para moverse y disparar proyecciones.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128506; Matriz Dinámica 8x8</h4>
+                        <p>Representación matricial en consola que actualiza la posición de los jugadores, los obstáculos del terreno y la trayectoria de los proyectiles.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#9874; Sistema de Colisiones y Salud</h4>
+                        <p>Cálculo estricto de puntos de vida (HP) de cada combatiente con retroalimentación inmediata en la consola.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#9201; Game Loop Multihilo</h4>
+                        <p>Gestión de tiempos de refresco con <code>std::this_thread::sleep_for</code> para mantener una velocidad constante de movimiento y render.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Desarrollado puramente en <strong>C++</strong> nativo con soporte multiplataforma (Windows <code>cls</code> / Linux <code>clear</code>):
+                </p>
+
+                <div class="code-block">
+// Renderizado de la matriz de juego en C++
+void em(string tablero[8][8], int renglones, int columnas, int v1, int v2) {
+    for (renglones = 0; renglones < 8; renglones++) {
+        for (columnas = 0; columnas < 8; columnas++) {
+            cout << tablero[renglones][columnas];
+        }
+        cout << "\n";
+    }
+    cout << "\nVida Jugador 1: " << v1;
+    cout << "\nVida Jugador 2: " << v2;
+}
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Aprendizajes</h2>
+                <p>
+                    Consolidé fundamentos avanzados de manipulación de arrays bidimensionales, manejo de entrada asíncrona sin bloqueo por teclado y lógica pura de videojuegos en C++.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

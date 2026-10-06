@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevador Inclusivo | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">IoT & Visión por Computadora</span>
+            <h1 class="blog-title">Elevador Inclusivo con Control Gestual y de Voz</h1>
+            <p class="blog-subtitle">
+                Sistema de transporte vertical inteligente y accesible para personas con discapacidad motriz o visual, controlado mediante reconocimiento de gestos con visión artificial y síntesis/reconocimiento de voz bilingüe.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Python 3.13</span>
+                    <span class="tech-badge-large">OpenCV</span>
+                    <span class="tech-badge-large">MediaPipe</span>
+                    <span class="tech-badge-large">PyQt5</span>
+                    <span class="tech-badge-large">Arduino / Serial</span>
+                    <span class="tech-badge-large">SpeechRecognition</span>
+                    <span class="tech-badge-large">pyttsx3 (TTS)</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/Control_Elevador.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    El <strong>Elevador Inclusivo</strong> es un prototipo tecnológico diseñado para eliminar las barreras de accesibilidad en edificios públicos y privados. Tradicionalmente, los paneles de botones de un elevador representan un obstáculo para personas con discapacidad visual o con movilidad limitada en brazos y manos.
+                </p>
+                <p>
+                    Este sistema permite interactuar con el elevador sin necesidad de contacto físico mediante dos modalidades principales:
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128075; Reconocimiento de Gestos</h4>
+                        <p>Detección en tiempo real de la mano y conteo de dedos (1 a 5) a través de una cámara web mediante IA visual para seleccionar el piso deseado.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#127909; Control de Voz Bilingüe</h4>
+                        <p>Comandos de voz procesados en español e inglés ("subir al piso 2", "open door") con respuesta de audio por síntesis de voz (Text-to-Speech).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128187; Interfaz Gráfica de Control</h4>
+                        <p>Dashboard de monitoreo desarrollado en PyQt5 que muestra el estado del elevador, la señal de cámara en vivo y los logs de comunicación.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128065; Feedback Accesible</h4>
+                        <p>Confirmación auditiva y visual de cada acción para que usuarios con ceguera o debilidad auditiva sepan exactamente a qué piso se dirigen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    El proyecto integra un pipeline de software en <strong>Python</strong> coordinado con un controlador físico en <strong>Arduino</strong> a través de comunicación serial (USART/UART):
+                </p>
+                
+                <p><strong>1. Procesamiento de Visión Artificial (MediaPipe + OpenCV):</strong></p>
+                <p>
+                    Utilicé la biblioteca <code>mediapipe.solutions.hands</code> para rastrear 21 puntos de referencia (landmarks) en la mano en tiempo real a 60 FPS. Un algoritmo de geometría calcula la posición relativa de las yemas de los dedos respecto a las articulaciones metacarpofalángicas para determinar con exactitud cuántos dedos están levantados.
+                </p>
+
+                <div class="code-block">
+# Fragmento del cálculo de puntos de referencia con MediaPipe
+import mediapipe as mp
+import cv2
+
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
+
+# Verificación de extensión de dedos
+def contar_dedos(hand_landmarks):
+    dedos = []
+    # Pulgar
+    if hand_landmarks.landmark[4].x < hand_landmarks.landmark[3].x:
+        dedos.append(1)
+    # Dedos índice, medio, anular, meñique
+    for id in [8, 12, 16, 20]:
+        if hand_landmarks.landmark[id].y < hand_landmarks.landmark[id - 2].y:
+            dedos.append(1)
+    return sum(dedos)
+                </div>
+
+                <p><strong>2. Interfaz y Arquitectura Multihilo (PyQt5):</strong></p>
+                <p>
+                    Para evitar bloquear la interfaz de usuario mientras la cámara procesa fotogramas y la voz escucha instrucciones, separé las tareas pesadas en hilos independientes (QThread). El hilo principal administra la GUI y la renderización en pantalla.
+                </p>
+
+                <p><strong>3. Control de Hardware en Tiempo Real:</strong></p>
+                <p>
+                    Los comandos validados se envían por el puerto serial (<code>pyserial</code> en <code>COM3</code> / <code>/dev/ttyUSB0</code> a 9600 baudios) hacia una placa Arduino que controla los motores paso a paso y los sensores del elevador.
+                </p>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Lecciones Aprendidas e Impacto</h2>
+                <p>
+                    Este desarrollo demostró el inmenso potencial de combinar la visión por computadora y el procesamiento del lenguaje natural para crear soluciones inclusivas de bajo costo. 
+                </p>
+                <p>
+                    Aprendí a gestionar la latencia en algoritmos de visión por computadora, a manejar concurrencia en Python con PyQt5 y a estructurar protocolos de comunicación serial robustos contra errores de transmisión.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

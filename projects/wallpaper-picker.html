@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Picker Hyprland | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Linux Desktop & GTK4 UI</span>
+            <h1 class="blog-title">Wallpaper Picker for Hyprland</h1>
+            <p class="blog-subtitle">
+                Aplicación gráfica nativa en GTK4 y libadwaita para previsualizar miniaturas de video, seleccionar y aplicar fondos de pantalla animados dinámicos en vivo en Hyprland mediante mpvpaper con sincronización de paletas de color.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Python 3.11+</span>
+                    <span class="tech-badge-large">GTK4</span>
+                    <span class="tech-badge-large">libadwaita</span>
+                    <span class="tech-badge-large">mpvpaper</span>
+                    <span class="tech-badge-large">FFmpeg</span>
+                    <span class="tech-badge-large">PyGObject</span>
+                    <span class="tech-badge-large">Caelestia Shell Sync</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/wallpapers-hyperland.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>Wallpaper Picker</strong> es un selector de fondos de pantalla animados en video (archivos <code>.mp4</code>) adaptado a los estándares modernos de GNOME / libadwaita en el entorno de escritorio Wayland Hyprland.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#127916; Generación Automática de Miniaturas</h4>
+                        <p>Extrae fotogramas en el segundo 3 de cada video con <code>ffmpeg</code> y los almacena en caché para una rápida visualización en cuadrícula.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#9889; Aplicación Inmediata con mpvpaper</h4>
+                        <p>Al hacer clic en una tarjeta, destruye el proceso anterior de <code>mpvpaper</code> y lanza el video seleccionado sin congelar el escritorio.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#127912; Sincronización de Paleta de Colores (Caelestia)</h4>
+                        <p>Genera la paleta de colores de acento del sistema automáticamente a partir del fotograma del wallpaper seleccionado.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128260; Persistencia al Reiniciar</h4>
+                        <p>Guarda el último wallpaper elegido en <code>~/.config/wallpaper-picker/current</code> para restaurarlo automáticamente al encender el equipo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Construido usando bindings de <strong>PyGObject</strong> para GTK4 y <strong>libadwaita</strong>, aprovechando ejecutables del sistema Linux:
+                </p>
+
+                <div class="code-block">
+# Extracción de miniaturas con FFmpeg y renderizado en mpvpaper
+import subprocess, pathlib
+
+WALLPAPERS_DIR = pathlib.Path.home() / "Videos/wallpapers"
+CACHE_DIR = pathlib.Path.home() / ".cache/wallpaper-picker"
+
+def apply_wallpaper(video_path, thumb_path):
+    # Guardar estado persistente
+    with open(pathlib.Path.home() / ".config/wallpaper-picker/current", "w") as f:
+        f.write(str(video_path))
+    
+    # Reiniciar mpvpaper dinámicamente
+    subprocess.run(["pkill", "mpvpaper"])
+    subprocess.Popen([
+        "mpvpaper", "-o", "--loop-playlist --no-audio --panscan=1.0", "*", str(video_path)
+    ])
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Impacto</h2>
+                <p>
+                    Combina la fluidez visual de los entornos Linux modernos con una herramienta UI rápida que aprovecha la aceleración por hardware de la GPU.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

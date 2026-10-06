@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Desktop App & React</span>
+            <h1 class="blog-title">TaskFlow - Gestor de Tareas de Alto Rendimiento</h1>
+            <p class="blog-subtitle">
+                Aplicación de escritorio moderna construida con Electron, React, TypeScript y Tailwind CSS, diseñada para la gestión fluida de tareas diarias con analíticas visuales e integración multiplataforma.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Electron</span>
+                    <span class="tech-badge-large">React 18</span>
+                    <span class="tech-badge-large">TypeScript</span>
+                    <span class="tech-badge-large">Tailwind CSS</span>
+                    <span class="tech-badge-large">Vite</span>
+                    <span class="tech-badge-large">Recharts</span>
+                    <span class="tech-badge-large">Electron Store</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/TaskFlow.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>TaskFlow</strong> es un gestor de productividad personal y profesional diseñado para ofrecer una experiencia ultra fluida y rápida en sistemas Linux, macOS y Windows.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#9989; Organización Inteligente de Tareas</h4>
+                        <p>Categorización por proyectos, prioridades, etiquetas dinámicas y fechas límite con estados personalizables.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128202; Gráficos y Métricas de Productividad</h4>
+                        <p>Visualizaciones interactivas impulsadas por <code>Recharts</code> para analizar el porcentaje de cumplimiento y horas dedicadas por categoría.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128190; Almacenamiento Local Seguro</h4>
+                        <p>Persistencia inmediata offline usando <code>Electron Store</code> sin necesidad de conectarse a servidores externos.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#9889; Empaquetado Nativo</h4>
+                        <p>Compilado directamente como paquete ejecutable para Linux (AppImage / deb) y compatible con atajos globales del sistema.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Utilicé la arquitectura moderna recomendada para Electron con <strong>electron-vite</strong> para obtener compilaciones instantáneas (HMR):
+                </p>
+
+                <p><strong>1. Comunicación IPC Segura (Main vs Renderer):</strong></p>
+                <p>
+                    El proceso principal de Electron (Main) y la interfaz en React (Renderer) se comunican a través de un puente seguro con <code>contextBridge</code> en el script de <code>preload</code>, respetando las mejores prácticas de seguridad de Electron.
+                </p>
+
+                <div class="code-block">
+// preload/index.ts - Puente tipado en TypeScript
+import { contextBridge, ipcRenderer } from 'electron';
+
+contextBridge.exposeInMainWorld('api', {
+    getTasks: () => ipcRenderer.invoke('tasks:get'),
+    saveTask: (task) => ipcRenderer.invoke('tasks:save', task),
+    deleteTask: (id) => ipcRenderer.invoke('tasks:delete', id)
+});
+                </div>
+
+                <p><strong>2. Interfaz React Moderna con Tailwind CSS:</strong></p>
+                <p>
+                    Diseño limpio y minimalistico aprovechando Tailwind CSS para un look responsivo, junto con iconos vectoriales de Lucide React y componentes altamente modulares.
+                </p>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Aprendizajes</h2>
+                <p>
+                    Dominé la integración de React en entornos de escritorio con Electron, el manejo de TypeScript estricto en arquitecturas IPC y la optimización del rendimiento de renderizado en aplicaciones de escritorio basadas en Chromium.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

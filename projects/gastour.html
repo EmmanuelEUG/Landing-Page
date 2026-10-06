@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GasTour Android App | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Android & Mobile Navigation</span>
+            <h1 class="blog-title">GasTour - Calculadora Inteligente de Rutas y Gasolina</h1>
+            <p class="blog-subtitle">
+                Aplicación móvil Android nativa construida en Kotlin con Jetpack Compose para la planificación de viajes por carretera, estimación precisa de costos de combustible por vehículo, gestión de rutas favoritas y mapa interactivo.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Android Studio</span>
+                    <span class="tech-badge-large">Kotlin</span>
+                    <span class="tech-badge-large">Jetpack Compose</span>
+                    <span class="tech-badge-large">Retrofit 2</span>
+                    <span class="tech-badge-large">StateFlow / ViewModel</span>
+                    <span class="tech-badge-large">MapWebView</span>
+                    <span class="tech-badge-large">TokenManager</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/GasTour.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>GasTour</strong> es una solución de movilidad diseñada para conductores y viajeros que desean optimizar sus gastos de transporte. Al ingresar el origen, destino y el modelo de vehículo registrado, la aplicación calcula el rendimiento real de combustible (km/l), el volumen total de litros requeridos y el presupuesto financiero estimado para el viaje.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128694; Planificación de Rutas y Mapa Interactivo</h4>
+                        <p>Visualización del trayecto optimizado a través de un componente de mapa integrado con geolocalización y cálculo de distancia.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128663; Garaje de Vehículos Personalizado</h4>
+                        <p>Permite agregar múltiples vehículos especificando su rendimiento urbano/carretera y tipo de combustible (Magna, Premium, Diésel).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128278; Historial de Rutas Guardadas</h4>
+                        <p>Almacena las rutas más frecuentes para una rápida reconsulta sin necesidad de volver a calcular datos.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128274; Autenticación JWT y Perfil</h4>
+                        <p>Gestión de sesión segura con almacenamiento de tokens bearer, actualización de contraseña y sincronización en la nube.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Arquitectura móvil basada en **MVVM (Model-View-ViewModel)** y diseño declarativo de interfaces con **Jetpack Compose**:
+                </p>
+
+                <p><strong>1. Capa de Red y API Rest (Retrofit 2 + OkHttp Interceptor):</strong></p>
+                <p>
+                    Utilicé <code>Retrofit</code> junto con <code>AuthInterceptor</code> para inyectar automáticamente el token de autorización JWT en cada petición HTTP hacia la API de backend.
+                </p>
+
+                <div class="code-block">
+// TokenManager y AuthInterceptor en Kotlin
+class AuthInterceptor(private val tokenManager: TokenManager) : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val token = tokenManager.getToken()
+        val request = chain.request().newBuilder()
+        if (!token.isNullOrEmpty()) {
+            request.addHeader("Authorization", "Bearer $token")
+        }
+        return chain.proceed(request.build())
+    }
+}
+                </div>
+
+                <p><strong>2. Interfaz Declarativa moderna (Jetpack Compose):</strong></p>
+                <p>
+                    Toda la interfaz gráfica está programada en Compose puro con navegación basada en destinos (<code>NavHost</code>), <code>StateFlow</code> para la gestión reactiva del estado de la pantalla (<code>AppUiState</code>) y temas personalizados de Material Design 3.
+                </p>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Impacto</h2>
+                <p>
+                    GasTour ayuda a los conductores a planificar viajes largos de forma inteligente, evitando sorpresas presupuestarias en las estaciones de servicio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

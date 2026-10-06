@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BayesIQ Analytics | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Inferencia Estadística & Probabilidad</span>
+            <h1 class="blog-title">BayesIQ Analytics</h1>
+            <p class="blog-subtitle">
+                Plataforma de análisis estadístico predictivo e inferencia bayesiana basada en modelos probabilísticos avanzados para la actualización de creencias y toma de decisiones ante incertidumbre de datos.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Python</span>
+                    <span class="tech-badge-large">Pandas</span>
+                    <span class="tech-badge-large">SciPy</span>
+                    <span class="tech-badge-large">Scikit-Learn</span>
+                    <span class="tech-badge-large">JavaScript</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/BayesIQ.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>BayesIQ Analytics</strong> aplica las matemáticas de la inferencia bayesiana para calcular probabilidades a posteriori basadas en evidencias observadas y distribuciones a priori.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128200; Modelado Probabilístico Bayesiano</h4>
+                        <p>Evaluación de modelos de probabilidad condicional P(A|B) para predicción de eventos futuros y estimación de parámetros.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#129518; Actualización de Creencias a Priori</h4>
+                        <p>Actualización iterativa del conocimiento del modelo a medida que se incorporan nuevas observaciones al dataset.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#129302; Integración con Machine Learning</h4>
+                        <p>Conexión con clasificadores Naive Bayes de Scikit-Learn para tareas de procesamiento de texto y predicción discreta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    Desarrollado en <strong>Python</strong> utilizando librerías matemáticas como <code>scipy.stats</code> y <code>numpy</code> para el cálculo matricial de distribuciones Beta, Binomial y Gaussiana:
+                </p>
+
+                <div class="code-block">
+# Ejemplo conceptual de inferencia bayesiana en Python
+import numpy as np
+from scipy import stats
+
+def calcular_posterior(prior_a, prior_b, exitos, total):
+    # Distribución Beta conjugada
+    posterior_a = prior_a + exitos
+    posterior_b = prior_b + (total - exitos)
+    dist = stats.beta(posterior_a, posterior_b)
+    return dist.mean(), dist.interval(0.95)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

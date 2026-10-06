@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentiHuesos | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Escritorio & Gestión Médica</span>
+            <h1 class="blog-title">DentiHuesos - Sistema de Gestión Odontológica</h1>
+            <p class="blog-subtitle">
+                Aplicación de escritorio empresarial para la administración completa de un consultorio dental: expediente clínico de pacientes, control de citas, catálogo de tratamientos, stock de medicamentos e inventario médico.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">C#</span>
+                    <span class="tech-badge-large">.NET Framework</span>
+                    <span class="tech-badge-large">Windows Forms</span>
+                    <span class="tech-badge-large">MySQL Connector</span>
+                    <span class="tech-badge-large">ADO.NET</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/DentiHuesos.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>DentiHuesos</strong> es un software de escritorio desarrollado a la medida para simplificar la operación diaria de clínicas odontológicas. Reemplaza las bitácoras físicas en papel por un sistema digital centralizado que optimiza la atención al paciente y la administración financiera.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128100; Expediente Clínico de Pacientes</h4>
+                        <p>Registro detallado de datos personales, historial médico, alergias, diagnósticos y tratamientos realizados a cada paciente.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128138; Control de Inventario y Medicamentos</h4>
+                        <p>Monitoreo en tiempo real del stock de insumos odontológicos y fármacos, alertando cuando los niveles están próximos a agotarse.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128197; Agenda de Citas</h4>
+                        <p>Programación dinámica de consultas médicas por especialista con estados de confirmación, cancelación y asistencias.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128179; Facturación y Cobros</h4>
+                        <p>Generación de notas de pago por servicios realizados y seguimiento del historial financiero de la clínica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    El proyecto está desarrollado en <strong>C# (.NET Framework)</strong> siguiendo una arquitectura multitapa (UI, Lógica de Negocio y Acceso a Datos):
+                </p>
+
+                <p><strong>1. Interfaz de Usuario (Windows Forms):</strong></p>
+                <p>
+                    Diseñé una interfaz intuitiva organizada mediante formularios MDI (Multiple Document Interface) que permite a los asistentes y dentistas navegar rápidamente entre clientes, citas e inventario sin perder el contexto de trabajo.
+                </p>
+
+                <p><strong>2. Capa de Datos con MySQL & ADO.NET:</strong></p>
+                <p>
+                    Implementé patrones de acceso a datos seguros utilizando <code>MySqlCommand</code> con parámetros para prevenir inyecciones SQL y garantizar la integridad transaccional de los expedientes médicos.
+                </p>
+
+                <div class="code-block">
+// Ejemplo de consulta parametrizada en C# ADO.NET
+using (MySqlConnection conn = new MySqlConnection(connectionString))
+{
+    conn.Open();
+    string query = "INSERT INTO Pacientes (Nombre, Telefono, Historial) VALUES (@nombre, @telefono, @historial)";
+    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+    {
+        cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+        cmd.Parameters.AddWithValue("@telefono", txtTelefono.Text);
+        cmd.Parameters.AddWithValue("@historial", txtHistorial.Text);
+        cmd.ExecuteNonQuery();
+    }
+}
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Aprendizajes Destacados</h2>
+                <p>
+                    Fortalecí mis conocimientos en programación orientada a objetos en C#, manejo de eventos en interfaces gráficas complejas y diseño de bases de datos relacionales orientadas al sector salud.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

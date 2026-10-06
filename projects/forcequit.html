@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForceQuit | Blog de Proyecto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <img class="logo-img" src="../img/logoLanding.png" alt="Logo Emmanuel">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#sobre-mi">Inicio</a></li>
+                <li><a href="../index.html#proyectos">Proyectos</a></li>
+                <li><a href="../index.html#eventos">Eventos</a></li>
+                <li><a href="../index.html#certificaciones">Certificaciones</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section style="padding-top: 7rem;">
+        <div class="blog-header-nav">
+            <a href="../index.html#proyectos" class="btn-back">
+                &#8592; Volver a Proyectos
+            </a>
+        </div>
+
+        <article class="blog-hero">
+            <span class="blog-category-tag">Linux Utilities & System Tools</span>
+            <h1 class="blog-title">ForceQuit - Gestor de Cierre Forzado para Hyprland</h1>
+            <p class="blog-subtitle">
+                Utilidad gráfica ultraligera en Python y PyQt6 diseñada específicamente para usuarios de ArchLinux y el compositor Wayland Hyprland, permitiendo finalizar procesos bloqueados de forma inmediata y limpia.
+            </p>
+            <div class="blog-meta-group">
+                <div class="tech-grid">
+                    <span class="tech-badge-large">Python 3</span>
+                    <span class="tech-badge-large">PyQt6</span>
+                    <span class="tech-badge-large">Hyprland (hyprctl)</span>
+                    <span class="tech-badge-large">psutil</span>
+                    <span class="tech-badge-large">QSS / Custom CSS</span>
+                </div>
+                <a href="https://github.com/EmmanuelEUG/ForceQuit.git" target="_blank" class="btn-cta" style="margin-left: auto;">
+                    Ver en GitHub &#8599;
+                </a>
+            </div>
+        </article>
+
+        <div class="blog-content">
+            <div class="blog-section">
+                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <p>
+                    <strong>ForceQuit</strong> soluciona un problema muy común en entornos de escritorio basados en Wayland y compositores de ventanas como <strong>Hyprland</strong>: cuando una aplicación gráfica se congela o deja de responder, las herramientas tradicionales xkill no siempre funcionan correctamente.
+                </p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>&#128187; Integración Nativa con Hyprland</h4>
+                        <p>Interactúa con la IPC de Hyprland utilizando <code>hyprctl clients -j</code> para listar únicamente ventanas gráficas activas en los espacios de trabajo.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128160; Terminación Limpia y Recursiva</h4>
+                        <p>Usa <code>psutil.Process(pid).children(recursive=True)</code> para eliminar el proceso padre y todos sus subprocesos hijos, evitando procesos zombi en la memoria.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#127912; Interfaz Moderada en PyQt6</h4>
+                        <p>Ventana flotante estilizada con QSS que coincide con la estética oscura de Linux Hyprland.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>&#128269; Identificación por PID</h4>
+                        <p>Muestra claramente el PID del sistema y la clase del cliente gráfico para evitar cerrar accidentalmente procesos equivocados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <p>
+                    El script en <strong>Python 3</strong> consulta la lista de ventanas activas llamando a la herramienta oficial <code>hyprctl</code> en formato JSON y renderiza dinámicamente un menú interactivo en <strong>PyQt6</strong>:
+                </p>
+
+                <div class="code-block">
+# Fragmento del cierre recursivo de procesos con psutil
+import subprocess, json, psutil
+
+def terminate_process_tree(pid):
+    try:
+        parent = psutil.Process(pid)
+        children = parent.children(recursive=True)
+        for child in children:
+            child.kill()
+        parent.kill()
+        print(f"Proceso {pid} y sus subprocesos eliminados con éxito.")
+    except psutil.NoSuchProcess:
+        pass
+                </div>
+            </div>
+
+            <div class="blog-section">
+                <h2>&#127942; Impacto</h2>
+                <p>
+                    Proporciona a los usuarios de Hyprland una herramienta confiable con atajo de teclado para mantener el sistema ágil sin necesidad de abrir una terminal y ejecutar manualmente <code>kill -9</code> o <code>htop</code>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado con pasión.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

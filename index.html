@@ -5,37 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emmanuel | Ingeniero en Software</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- HEADER / NAV -->
     <header>
         <nav class="nav-container">
-            <a href="#" class="logo"><img class="logo-img" src="./img/logoLanding.png" alt="Logo de la página"></a>
+            <a href="#" class="logo">
+                <img class="logo-img" src="./img/logoLanding.png" alt="Logo Emmanuel EUG">
+            </a>
             <ul class="nav-links">
                 <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#lenguajes">Lenguajes</a></li>
+                <li><a href="#lenguajes">Skills</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#eventos">Eventos</a></li>
                 <li><a href="#certificaciones">Certificaciones</a></li>
                 <li><a href="#GitHup">GitHub</a></li>
                 <li><a href="#CertificadosPDF">Certificados PDF</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Abrir menú de navegación">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
+    <!-- HERO / SOBRE MÍ -->
     <section id="sobre-mi">
         <div class="sobre-mi-container">
             <div class="sobre-mi-texto">
                 <p class="hero-sub">Hola, soy Emmanuel Urbina Guerrero</p>
-                <h1 class="hero-titulo">Emmanuel.<br>Build. Scale. Optimize.</h1>
+                <h1 class="hero-titulo">Emmanuel.<br>Build. Scale.<br>Optimize.</h1>
                 <p class="hero-descripcion">
-                    Soy estudiante de Ingenieria en Software especializado en algoritmia, eficiencia y gestión de proyectos. Me apasiona resolver problemas complejos mediante código limpio y buenas prácticas de programación.
+                    Estudiante de Ingeniería en Software especializado en algoritmia, eficiencia y gestión de proyectos. Me apasiona resolver problemas complejos mediante código limpio y buenas prácticas de programación.
                 </p>
-                <div>
-                    <a href="#proyectos" class="btn-cta">Ver mis proyectos</a>
+                <div class="btn-cta-group">
+                    <a href="#proyectos" class="btn-cta">&#128196; Ver mis proyectos</a>
+                    <a href="https://github.com/EmmanuelEUG" target="_blank" class="btn-secondary">&#128279; GitHub</a>
                 </div>
             </div>
-            
+
             <div class="sobre-mi-foto-wrapper">
                 <div class="sobre-mi-foto-marco">
                     <img class="perfil-img" src="./img/yo.png" alt="Fotografía de Emmanuel Urbina Guerrero">
@@ -44,221 +57,352 @@
         </div>
     </section>
 
+    <!-- LENGUAJES / SKILLS -->
     <section id="lenguajes">
         <h2 class="titulo-seccion">Lenguajes de Programación</h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <img src="./img/logojava.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logojava.png" alt="Java" width="44" height="44">
                 <p>Java</p>
             </div>
             <div class="skill-card">
-                <img src="./img/logopython.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logopython.png" alt="Python" width="44" height="44">
                 <p>Python</p>
             </div>
             <div class="skill-card">
-                <img src="./img/logoc.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logoc.png" alt="C" width="44" height="44">
                 <p>C</p>
             </div>
             <div class="skill-card">
-                <img src="./img/logocsharp.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logocsharp.png" alt="C#" width="44" height="44">
                 <p>C#</p>
             </div>
             <div class="skill-card">
-                <img src="./img/logojs.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logojs.png" alt="JavaScript" width="44" height="44">
                 <p>JavaScript</p>
             </div>
             <div class="skill-card">
-                <img src="./img/logoc++.png" alt="Descripción del icono" width="40" height="40">
+                <img src="./img/logoc++.png" alt="C++" width="44" height="44">
                 <p>C++</p>
             </div>
         </div>
     </section>
 
+    <!-- PROYECTOS -->
     <section id="proyectos">
         <h2 class="titulo-seccion">Mis Proyectos</h2>
         <div class="proyectos-grid">
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">Elevador Incusivo</h3>
-                    <p class="proyecto-desc">Un elevador accesible para personas con movilidad reducida o con cegera, cuenta con control por medio de gestos de la mano y por medio de voz en ingles y español</p>
-                    <ul class="proyecto-tech">
-                        <li>python</li>
-                        <li>arduino</li>
-                    </ul>
+
+            <!-- Elevador Inclusivo -->
+            <a href="./projects/elevador-inclusivo.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">Elevador Inclusivo</h3>
+                        </div>
+                        <p class="proyecto-desc">Elevador accesible para personas con movilidad reducida o ceguera, con control por gestos de mano (MediaPipe) y reconocimiento de voz bilingüe (español/inglés) conectado a Arduino.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">OpenCV</li>
+                                <li class="tech-tag">MediaPipe</li>
+                                <li class="tech-tag">Arduino</li>
+                                <li class="tech-tag">PyQt5</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">SAM</h3>
-                    <p class="proyecto-desc">Sistema de monitoreo para colmenas mediante sensores de humedad,peso y temperatura con una interfaz web para la gestion de un negocio apicola</p>
-                    <ul class="proyecto-tech">
-                        <li>esp32</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                        <li>Javalin</li>
-                        <li>MySQL</li>
-                        <li>html</li>
-                        <li>css</li>
-                    </ul>
+            </a>
+
+            <!-- SAM -->
+            <a href="./projects/sam.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">SAM</h3>
+                        </div>
+                        <p class="proyecto-desc">Sistema IoT de monitoreo de colmenas con sensores de humedad, peso y temperatura. API REST en Javalin, interfaz web analítica y gestión completa de un negocio apícola.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">ESP32</li>
+                                <li class="tech-tag">Java</li>
+                                <li class="tech-tag">Javalin</li>
+                                <li class="tech-tag">MySQL</li>
+                                <li class="tech-tag">JavaScript</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">DentiHuesos</h3>
-                    <p class="proyecto-desc">Aplicacion de escritorio para la gestion de clientes y medicamentos de un consultorio odontologico</p>
-                    <ul class="proyecto-tech">
-                        <li>C#</li>
-                        <li>MySQL</li>
-                    </ul>
+            </a>
+
+            <!-- DentiHuesos -->
+            <a href="./projects/dentihuesos.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">DentiHuesos</h3>
+                        </div>
+                        <p class="proyecto-desc">Aplicación de escritorio en C# para la gestión integral de un consultorio odontológico: expedientes de pacientes, citas, inventario de medicamentos y control financiero.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">C#</li>
+                                <li class="tech-tag">.NET</li>
+                                <li class="tech-tag">WinForms</li>
+                                <li class="tech-tag">MySQL</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">TaskFlow</h3>
-                    <p class="proyecto-desc">Aplicacion de escritorio para la gestion de tareas para correr en linux</p>
-                    <ul class="proyecto-tech">
-                        <li>TypeScript</li>
-                        <li>JavaScript</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JSON</li>
-                        <li>YAML</li>
-                        <li>SVG</li>
-                        <li>Markdown</li>
-                    </ul>
+            </a>
+
+            <!-- TaskFlow -->
+            <a href="./projects/taskflow.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">TaskFlow</h3>
+                        </div>
+                        <p class="proyecto-desc">Gestor de tareas de alto rendimiento para escritorio con React, TypeScript y Electron. Incluye analíticas de productividad con Recharts y almacenamiento local persistente.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Electron</li>
+                                <li class="tech-tag">React</li>
+                                <li class="tech-tag">TypeScript</li>
+                                <li class="tech-tag">Tailwind CSS</li>
+                                <li class="tech-tag">Vite</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">ForceQuit</h3>
-                    <p class="proyecto-desc">Aplicacion de escritorio para Forsar la salida de aplicaciones en ArchLinux mediante una interfaz grafica</p>
-                    <ul class="proyecto-tech">
-                        <li>Python</li>
-                        <li>QSS/CSS</li>
-                        <li>JSON</li>
-                        <li>Shell</li>
-                    </ul>
+            </a>
+
+            <!-- ForceQuit -->
+            <a href="./projects/forcequit.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">ForceQuit</h3>
+                        </div>
+                        <p class="proyecto-desc">Utilidad gráfica PyQt6 para Hyprland (Wayland/ArchLinux) que lista las ventanas activas y termina procesos bloqueados de forma limpia eliminando toda la árbol de subprocesos.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">PyQt6</li>
+                                <li class="tech-tag">psutil</li>
+                                <li class="tech-tag">Hyprland</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">El Malo, El Bueno y EL Pixeleado</h3>
-                    <p class="proyecto-desc">Video juego shoter sin interfaz Grafica, puramente en consola de 2 jugadores en un mismo teclado</p>
-                    <ul class="proyecto-tech">
-                        <li>C++</li>
-                    </ul>
+            </a>
+
+            <!-- El Bueno, El Malo y El Pixeleado -->
+            <a href="./projects/el-bueno-el-malo-y-el-pixeleado.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">El Bueno, El Malo y El Pixeleado</h3>
+                        </div>
+                        <p class="proyecto-desc">Videojuego shooter multijugador local en consola pura C++, para 2 jugadores en el mismo teclado sobre una matriz 8x8 con sistema de disparos, colisiones y vidas.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">C++</li>
+                                <li class="tech-tag">std::thread</li>
+                                <li class="tech-tag">Matrices</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">Wallpaper-Picker</h3>
-                    <p class="proyecto-desc">Aplicación gráfica de escritorio para previsualizar, seleccionar y aplicar dinámicamente fondos de pantalla animados en video para el entorno Hyprland</p>
-                    <ul class="proyecto-tech">
-                        <li>python</li>
-                        <li>gtk4</li>
-                        <li>css</li>
-                        <li>ffmpeg</li>
-                        <li>mpvpaper</li>
-                    </ul>
+            </a>
+
+            <!-- Wallpaper-Picker -->
+            <a href="./projects/wallpaper-picker.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">Wallpaper Picker</h3>
+                        </div>
+                        <p class="proyecto-desc">App GTK4/libadwaita para previsualizar y aplicar fondos de pantalla en video (.mp4) en Hyprland usando mpvpaper, con thumbnails automáticas vía FFmpeg y sincronización de paleta Caelestia.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">GTK4</li>
+                                <li class="tech-tag">FFmpeg</li>
+                                <li class="tech-tag">mpvpaper</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">Statistical-Intelligence-Platform</h3>
-                    <p class="proyecto-desc">Plataforma web interactiva para el análisis estadístico avanzado, el procesamiento de datos y la generación de visualizaciones analíticas a través de un panel de control dinámico.</p>
-                    <ul class="proyecto-tech">
-                        <li>react</li>
-                        <li>typescript</li>
-                        <li>python</li>
-                        <li>fastapi</li>
-                        <li>pandas</li>
-                    </ul>
+            </a>
+
+            <!-- Statistical Intelligence Platform -->
+            <a href="./projects/statistical-intelligence-platform.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">Statistical Intelligence Platform</h3>
+                        </div>
+                        <p class="proyecto-desc">Plataforma analítica full-stack híbrida Python/Streamlit + React/GSAP con puente JSON para dashboards ejecutivos de análisis estadístico avanzado. Disponible en producción.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">Streamlit</li>
+                                <li class="tech-tag">React</li>
+                                <li class="tech-tag">GSAP</li>
+                                <li class="tech-tag">Pandas</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div> 
-            <div class="proyecto-card">
-                <div class="proyecto-info">
-                    <h3 class="proyecto-titulo">BayesIQ Analytics</h3>
-                    <p class="proyecto-desc">Herramienta de análisis estadístico predictivo que utiliza el teorema de Bayes y modelos de probabilidad para la inferencia de datos.</p>
-                    <ul class="proyecto-tech">
-                        <li>python</li>
-                        <li>pandas</li>
-                        <li>scipy</li>
-                        <li>scikit-learn</li>
-                        <li>javascript</li>
-                    </ul>
+            </a>
+
+            <!-- BayesIQ -->
+            <a href="./projects/bayes-iq.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">BayesIQ Analytics</h3>
+                        </div>
+                        <p class="proyecto-desc">Herramienta de análisis estadístico predictivo aplicando el Teorema de Bayes con distribuciones conjugadas, modelos de inferencia y clasificadores probabilísticos con Scikit-Learn.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Python</li>
+                                <li class="tech-tag">Pandas</li>
+                                <li class="tech-tag">SciPy</li>
+                                <li class="tech-tag">Scikit-Learn</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
                 </div>
-            </div>     
+            </a>
+
+            <!-- GasTour -->
+            <a href="./projects/gastour.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">GasTour</h3>
+                            <span class="proyecto-badge-new">Nuevo</span>
+                        </div>
+                        <p class="proyecto-desc">App Android nativa en Kotlin + Jetpack Compose para planificar viajes por carretera, calcular costo de gasolina por vehículo, gestionar rutas favoritas y visualizarlas en mapa interactivo.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Kotlin</li>
+                                <li class="tech-tag">Jetpack Compose</li>
+                                <li class="tech-tag">Retrofit</li>
+                                <li class="tech-tag">Android</li>
+                                <li class="tech-tag">MVVM</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- VarroaDoseCalc -->
+            <a href="./projects/varroadosecalc.html" class="proyecto-card-link">
+                <div class="proyecto-card">
+                    <div class="proyecto-info">
+                        <div class="proyecto-header">
+                            <h3 class="proyecto-titulo">VarroaDoseCalc</h3>
+                            <span class="proyecto-badge-new">Nuevo</span>
+                        </div>
+                        <p class="proyecto-desc">Calculadora Android en Kotlin + Jetpack Compose para determinar la dosis exacta de acaricidas contra Varroa destructor en colmenas, cumpliendo normativas sanitarias apícolas.</p>
+                        <div class="proyecto-footer">
+                            <ul class="proyecto-tech">
+                                <li class="tech-tag">Kotlin</li>
+                                <li class="tech-tag">Jetpack Compose</li>
+                                <li class="tech-tag">Material Design 3</li>
+                                <li class="tech-tag">Android</li>
+                            </ul>
+                            <div class="card-action">Leer más &#8594;</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
+
+    <!-- GITHUB -->
     <section id="GitHup">
         <h2 class="titulo-seccion">GitHub</h2>
         <div class="cert-lista">
             <div class="cert-item">
-                <div class="logo-github">
+                <div class="cert-link-box">
                     <img src="./img/githuplogo.png" alt="GitHub Logo" width="40" height="40">
+                    <div class="cert-info">
+                        <h3>EmmanuelEUG</h3>
+                        <p>Todos los proyectos, código fuente y contribuciones</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <a class="btn btn-primary" href="https://github.com/EmmanuelEUG" target="_blank">Visitar perfil de GitHub</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="eventos">
-        <h2 class="titulo-seccion">Eventos</h2>
-        <div class="eventos-grid">
-            <div class="evento-card">
-                <div class="evento-contenedor-img">
-                    <img class="evento-img" src="./img/congresoaniei.jpeg" alt="Hackathon">
-                </div>
-                <div class="evento-info">
-                    <span class="evento-tag">Hackathon</span>
-                    <h3 class="evento-titulo">ANIEI hackathon 2024</h3>
-                    <p class="evento-desc">Una competencia de programacion competitiva celebrado en guadalajara en el que participe representando a chiapas opteniendo el 29avo lugar nacional</p>
-                </div>
-            </div>
-            <div class="evento-card">
-                <div class="evento-contenedor-img">
-                    <img class="evento-img" src="./img/kiskitFallFest.png" alt="Conferencia">
-                </div>
-                <div class="evento-info">
-                    <span class="evento-tag">Kiskit Fall Fest</span>
-                    <h3 class="evento-titulo">Kiskit Fall Fest 2025</h3>
-                    <p class="evento-desc">Un evento de parte de la IVM para dar un curso de 4 semanas de computacion cuantica en el que participe en el planetario de Tuxtla Gutierrez 2025</p>
-                </div>
+                <a class="btn-cta" href="https://github.com/EmmanuelEUG" target="_blank">Visitar perfil &#8599;</a>
             </div>
         </div>
     </section>
 
+    <!-- EVENTOS -->
+    <section id="eventos">
+        <h2 class="titulo-seccion">Eventos</h2>
+        <div class="eventos-grid">
+
+            <a href="./events/aniei-hackathon-2024.html" class="evento-card-link">
+                <div class="evento-card">
+                    <div class="evento-contenedor-img">
+                        <img class="evento-img" src="./img/congresoaniei.jpeg" alt="Congreso ANIEI Hackathon 2024">
+                    </div>
+                    <div class="evento-info">
+                        <span class="evento-tag">Hackathon Nacional</span>
+                        <h3 class="evento-titulo">ANIEI Hackathon 2024</h3>
+                        <p class="evento-desc">Competencia de programación competitiva en Guadalajara, representando a Chiapas. Posición 29 a nivel nacional.</p>
+                        <div class="card-action">Leer más &#8594;</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./events/qiskit-fall-fest-2025.html" class="evento-card-link">
+                <div class="evento-card">
+                    <div class="evento-contenedor-img">
+                        <img class="evento-img" src="./img/kiskitFallFest.png" alt="Qiskit Fall Fest 2025">
+                    </div>
+                    <div class="evento-info">
+                        <span class="evento-tag">Qiskit Fall Fest</span>
+                        <h3 class="evento-titulo">Qiskit Fall Fest 2025</h3>
+                        <p class="evento-desc">Curso de 4 semanas de computación cuántica con IBM Qiskit en el Planetario de Tuxtla Gutiérrez, Chiapas.</p>
+                        <div class="card-action">Leer más &#8594;</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- CERTIFICACIONES -->
     <section id="certificaciones">
         <h2 class="titulo-seccion">Certificaciones y Cursos</h2>
         <div class="cert-lista">
             <div class="cert-item">
                 <div class="cert-info">
-                    <h3>AWS Academy Graduate - Cloud Foundations - Training Badge</h3>
+                    <h3>AWS Academy Graduate – Cloud Foundations</h3>
                     <p>Amazon Web Services (AWS)</p>
                 </div>
                 <div class="cert-fecha">2025</div>
             </div>
             <div class="cert-item">
                 <div class="cert-info">
-                    <h3>Networking Basics</h3>
-                    <p>Cisco</p>
+                    <h3>Certificate of Participation – Qiskit Fall Fest</h3>
+                    <p>IBM</p>
                 </div>
                 <div class="cert-fecha">2025</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Operating Systems Support</h3>
-                    <p>Cisco</p>
-                </div>
-                <div class="cert-fecha">2026</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Operating Systems Basics</h3>
-                    <p>Cisco</p>
-                </div>
-                <div class="cert-fecha">2026</div>
             </div>
             <div class="cert-item">
                 <div class="cert-info">
@@ -269,45 +413,65 @@
             </div>
             <div class="cert-item">
                 <div class="cert-info">
-                    <h3>Reglas de la IA: como usarla sin correr riesgos
-legales</h3>
+                    <h3>Networking Basics</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+                <div class="cert-fecha">2025</div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h3>Reglas de la IA: cómo usarla sin correr riesgos legales</h3>
                     <p>Santander Open Academy</p>
                 </div>
                 <div class="cert-fecha">2025</div>
             </div>
             <div class="cert-item">
                 <div class="cert-info">
-                    <h3>Certificate of Participation QISKIT FALL FEST</h3>
-                    <p>IBM</p>
-                </div>
-                <div class="cert-fecha">2025</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h3>Introduction to Computer Vision with
-TensorFlow</h3>
+                    <h3>Introduction to Computer Vision with TensorFlow</h3>
                     <p>Microsoft Learn Student Ambassador</p>
                 </div>
                 <div class="cert-fecha">2024</div>
             </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h3>Operating Systems Support</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+                <div class="cert-fecha">2026</div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h3>Operating Systems Basics</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+                <div class="cert-fecha">2026</div>
+            </div>
         </div>
     </section>
-    
+
+    <!-- CERTIFICADOS PDF -->
     <section id="CertificadosPDF">
         <h2 class="titulo-seccion">Certificados PDF</h2>
         <div class="cert-lista">
             <div class="cert-item">
-                <div class="drive-logo">
-                    <img src="./img/drivelogo.webp" alt="Drive Logo" width="40" height="40">
+                <div class="cert-link-box">
+                    <img src="./img/drivelogo.webp" alt="Google Drive Logo" width="40" height="40">
+                    <div class="cert-info">
+                        <h3>Carpeta de Certificados</h3>
+                        <p>Todos los certificados en formato PDF disponibles en Google Drive</p>
+                    </div>
                 </div>
-                <div class="cert-info">
-                    <a class="btn btn-primary" href="https://drive.google.com/drive/folders/15ldiQJsAP71DhlpqLGA1FNK6AiKXH-TG?usp=sharing" target="_blank">Visitar carpeta de certificados</a>
-                </div>
+                <a class="btn-cta" href="https://drive.google.com/drive/folders/15ldiQJsAP71DhlpqLGA1FNK6AiKXH-TG?usp=sharing" target="_blank">
+                    Ver carpeta &#8599;
+                </a>
             </div>
         </div>
     </section>
+
     <footer>
         <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado desde cero.</p>
     </footer>
+
+    <script src="./script.js"></script>
 </body>
 </html>
