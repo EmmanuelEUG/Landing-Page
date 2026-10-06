@@ -61,32 +61,32 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>TaskFlow</strong> es un gestor de productividad personal y profesional diseñado para ofrecer una experiencia ultra fluida y rápida en sistemas Linux, macOS y Windows.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#9989; Organización Inteligente de Tareas</h4>
+                        <h4>Organización Inteligente de Tareas</h4>
                         <p>Categorización por proyectos, prioridades, etiquetas dinámicas y fechas límite con estados personalizables.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128202; Gráficos y Métricas de Productividad</h4>
+                        <h4>Gráficos y Métricas de Productividad</h4>
                         <p>Visualizaciones interactivas impulsadas por <code>Recharts</code> para analizar el porcentaje de cumplimiento y horas dedicadas por categoría.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128190; Almacenamiento Local Seguro</h4>
+                        <h4>Almacenamiento Local Seguro</h4>
                         <p>Persistencia inmediata offline usando <code>Electron Store</code> sin necesidad de conectarse a servidores externos.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#9889; Empaquetado Nativo</h4>
+                        <h4>Empaquetado Nativo</h4>
                         <p>Compilado directamente como paquete ejecutable para Linux (AppImage / deb) y compatible con atajos globales del sistema.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Utilicé la arquitectura moderna recomendada para Electron con <strong>electron-vite</strong> para obtener compilaciones instantáneas (HMR):
                 </p>
@@ -96,7 +96,7 @@
                     El proceso principal de Electron (Main) y la interfaz en React (Renderer) se comunican a través de un puente seguro con <code>contextBridge</code> en el script de <code>preload</code>, respetando las mejores prácticas de seguridad de Electron.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // preload/index.ts - Puente tipado en TypeScript
 import { contextBridge, ipcRenderer } from 'electron';
 
@@ -105,7 +105,7 @@ contextBridge.exposeInMainWorld('api', {
     saveTask: (task) => ipcRenderer.invoke('tasks:save', task),
     deleteTask: (id) => ipcRenderer.invoke('tasks:delete', id)
 });
-                </div>
+                </code></pre>
 
                 <p><strong>2. Interfaz React Moderna con Tailwind CSS:</strong></p>
                 <p>
@@ -114,7 +114,7 @@ contextBridge.exposeInMainWorld('api', {
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Aprendizajes</h2>
+                <h2>Aprendizajes</h2>
                 <p>
                     Dominé la integración de React en entornos de escritorio con Electron, el manejo de TypeScript estricto en arquitecturas IPC y la optimización del rendimiento de renderizado en aplicaciones de escritorio basadas en Chromium.
                 </p>

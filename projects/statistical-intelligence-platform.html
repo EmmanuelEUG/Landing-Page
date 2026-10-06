@@ -53,9 +53,10 @@
                     <span class="tech-badge-large">Tailwind CSS</span>
                 </div>
                 <a href="https://statistical-intelligence-platform-6cvpu8huvspr9udurfufrm.streamlit.app/" target="_blank" class="btn-cta" style="margin-left: auto;">
-                    Ver Demo En Vivo &#128640;
+                    Ver Demo En Vivo
                 </a>
                 <a href="https://github.com/EmmanuelEUG/Statistical-Intelligence-Platform.git" target="_blank" class="btn-secondary">
+                    <img class="btn-icon" src="../img/githuplogo.png" alt="">
                     GitHub &#8599;
                 </a>
             </div>
@@ -63,33 +64,33 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>Statistical Intelligence Platform (SIP)</strong> es un panel analítico interactivo diseñado para ejecutivos y científicos de datos que necesitan transformar datasets complejos en reportes estadísticos visuales y comprensibles.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128202; Carga y Análisis Automatizado</h4>
+                        <h4>Carga y Análisis Automatizado</h4>
                         <p>Subida de datos masivos en CSV o Excel con limpieza instantánea, cálculo de varianza, promedios, correlaciones y distribución normal.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#127912; Dashboard con Animaciones GSAP</h4>
+                        <h4>Dashboard con Animaciones GSAP</h4>
                         <p>Interfaz ejecutiva con gráficos interactivos renderizados dinámicamente mediante React y efectos cinematográficos con GSAP.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128038; Puente de Datos JSON Inyectado</h4>
+                        <h4>Puente de Datos JSON Inyectado</h4>
                         <p>Mecanismo eficiente de inyección directa de JSON (<code>__SIP_DATA__</code>) a tiempo de renderizado entre el motor de análisis en Python y la UI en React.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Arquitectura híbrida que conecta el poder del ecosistema científico de Python con la fluidez visual del desarrollo web moderno en React:
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 # Fragmento del bridge de datos entre Streamlit y React
 import streamlit as st
 import json
@@ -103,11 +104,11 @@ def render_react_dashboard(dataframe):
     &lt;iframe src="./index.html" style="width:100%; height:800px; border:none;"&gt;&lt;/iframe&gt;
     """
     st.components.v1.html(html_content, height=820)
-                </div>
+                </code></pre>
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Impacto y Despliegue</h2>
+                <h2>Impacto y Despliegue</h2>
                 <p>
                     El proyecto se encuentra desplegado y accesible públicamente en la nube de Streamlit, sirviendo como herramienta de referencia para análisis rápido de datos en entornos académicos y corporativos.
                 </p>

@@ -59,37 +59,37 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>El Bueno, El Malo y El Pixeleado</strong> es un juego shooter táctico retro que demuestra el poder de la algoritmia básica y la programación estructurada en C++ sin depender de motores gráficos ni librerías pesadas externas.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#127918; Multijugador Local en el Mismo Teclado</h4>
+                        <h4>Multijugador Local en el Mismo Teclado</h4>
                         <p>Dos jugadores controlan sus personajes en tiempo real (Jugador 1 con WASD y Jugador 2 con Teclas de Dirección) para moverse y disparar proyecciones.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128506; Matriz Dinámica 8x8</h4>
+                        <h4>Matriz Dinámica 8x8</h4>
                         <p>Representación matricial en consola que actualiza la posición de los jugadores, los obstáculos del terreno y la trayectoria de los proyectiles.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#9874; Sistema de Colisiones y Salud</h4>
+                        <h4>Sistema de Colisiones y Salud</h4>
                         <p>Cálculo estricto de puntos de vida (HP) de cada combatiente con retroalimentación inmediata en la consola.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#9201; Game Loop Multihilo</h4>
+                        <h4>Game Loop Multihilo</h4>
                         <p>Gestión de tiempos de refresco con <code>std::this_thread::sleep_for</code> para mantener una velocidad constante de movimiento y render.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Desarrollado puramente en <strong>C++</strong> nativo con soporte multiplataforma (Windows <code>cls</code> / Linux <code>clear</code>):
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // Renderizado de la matriz de juego en C++
 void em(string tablero[8][8], int renglones, int columnas, int v1, int v2) {
     for (renglones = 0; renglones < 8; renglones++) {
@@ -101,11 +101,11 @@ void em(string tablero[8][8], int renglones, int columnas, int v1, int v2) {
     cout << "\nVida Jugador 1: " << v1;
     cout << "\nVida Jugador 2: " << v2;
 }
-                </div>
+                </code></pre>
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Aprendizajes</h2>
+                <h2>Aprendizajes</h2>
                 <p>
                     Consolidé fundamentos avanzados de manipulación de arrays bidimensionales, manejo de entrada asíncrona sin bloqueo por teclado y lógica pura de videojuegos en C++.
                 </p>

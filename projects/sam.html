@@ -61,7 +61,7 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>SAM (Smart Apiary Monitoring)</strong> es una solución agrotecnológica diseñada para la apicultura moderna. Las colmenas de abejas son extremadamente sensibles a variaciones de temperatura, humedad interna y fluctuaciones drásticas de peso (indicadores de enjambrzón o producción de miel).
                 </p>
@@ -70,26 +70,26 @@
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128280; Monitoreo Telemétrico IoT</h4>
+                        <h4>Monitoreo Telemétrico IoT</h4>
                         <p>Módulos ESP32 transmiten telemetría periódica de temperatura, humedad relativa y peso de cada colmena a través de HTTP/REST.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128200; Analytics y Diagnóstico</h4>
+                        <h4>Analytics y Diagnóstico</h4>
                         <p>Visualización gráfica interactiva con producción por colmena, métricas promedio por temporada y sistema de alertas por umbrales desfigurados.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128221; Bitácora de Inspecciones</h4>
+                        <h4>Bitácora de Inspecciones</h4>
                         <p>Gestión completa de visitas técnicas, registro de presencia de reina, estado sanitario del nudo y control de cosechas acumuladas.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128274; Seguridad Avanzada de Sesiones</h4>
+                        <h4>Seguridad Avanzada de Sesiones</h4>
                         <p>Autenticación mediante cookies de sesión HTTP-only, cifrado de contraseñas con BCrypt y control de acceso basado en roles.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Arquitectura desacoplada basada en microservicios ligeros con un backend estructurado en capas en <strong>Java + Javalin</strong>:
                 </p>
@@ -99,7 +99,7 @@
                     Utilicé <strong>Javalin</strong> por su alto rendimiento e insignificante sobrecarga de memoria en comparación con frameworks tradicionales. El backend maneja controladores para autenticación, gestión de apiarios, lecturas de sensores, registros de inspección y cosechas.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // Ejemplo de controlador Javalin para lecturas de sensores
 app.get("/api/colmenas/{id}/lecturas", ctx -> {
     int colmenaId = Integer.parseInt(ctx.pathParam("id"));
@@ -118,7 +118,7 @@ app.post("/api/auth/login", ctx -> {
         ctx.status(401).result("Credenciales inválidas");
     }
 });
-                </div>
+                </code></pre>
 
                 <p><strong>2. Base de Datos Relacional Optimizada:</strong></p>
                 <p>
@@ -132,7 +132,7 @@ app.post("/api/auth/login", ctx -> {
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Impacto y Resultados</h2>
+                <h2>Impacto y Resultados</h2>
                 <p>
                     SAM permite a los productores apícolas reducir hasta en un 40% las visitas de inspección física innecesarias a los apiarios, detectando problemas de salud en las colonias semanas antes de que sean irreversibles.
                 </p>

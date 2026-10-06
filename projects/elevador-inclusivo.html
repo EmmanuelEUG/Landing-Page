@@ -61,7 +61,7 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     El <strong>Elevador Inclusivo</strong> es un prototipo tecnológico diseñado para eliminar las barreras de accesibilidad en edificios públicos y privados. Tradicionalmente, los paneles de botones de un elevador representan un obstáculo para personas con discapacidad visual o con movilidad limitada en brazos y manos.
                 </p>
@@ -70,26 +70,26 @@
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128075; Reconocimiento de Gestos</h4>
+                        <h4>Reconocimiento de Gestos</h4>
                         <p>Detección en tiempo real de la mano y conteo de dedos (1 a 5) a través de una cámara web mediante IA visual para seleccionar el piso deseado.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#127909; Control de Voz Bilingüe</h4>
+                        <h4>Control de Voz Bilingüe</h4>
                         <p>Comandos de voz procesados en español e inglés ("subir al piso 2", "open door") con respuesta de audio por síntesis de voz (Text-to-Speech).</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128187; Interfaz Gráfica de Control</h4>
+                        <h4>Interfaz Gráfica de Control</h4>
                         <p>Dashboard de monitoreo desarrollado en PyQt5 que muestra el estado del elevador, la señal de cámara en vivo y los logs de comunicación.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128065; Feedback Accesible</h4>
+                        <h4>Feedback Accesible</h4>
                         <p>Confirmación auditiva y visual de cada acción para que usuarios con ceguera o debilidad auditiva sepan exactamente a qué piso se dirigen.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     El proyecto integra un pipeline de software en <strong>Python</strong> coordinado con un controlador físico en <strong>Arduino</strong> a través de comunicación serial (USART/UART):
                 </p>
@@ -99,7 +99,7 @@
                     Utilicé la biblioteca <code>mediapipe.solutions.hands</code> para rastrear 21 puntos de referencia (landmarks) en la mano en tiempo real a 60 FPS. Un algoritmo de geometría calcula la posición relativa de las yemas de los dedos respecto a las articulaciones metacarpofalángicas para determinar con exactitud cuántos dedos están levantados.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 # Fragmento del cálculo de puntos de referencia con MediaPipe
 import mediapipe as mp
 import cv2
@@ -118,7 +118,7 @@ def contar_dedos(hand_landmarks):
         if hand_landmarks.landmark[id].y < hand_landmarks.landmark[id - 2].y:
             dedos.append(1)
     return sum(dedos)
-                </div>
+                </code></pre>
 
                 <p><strong>2. Interfaz y Arquitectura Multihilo (PyQt5):</strong></p>
                 <p>
@@ -132,7 +132,7 @@ def contar_dedos(hand_landmarks):
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Lecciones Aprendidas e Impacto</h2>
+                <h2>Lecciones Aprendidas e Impacto</h2>
                 <p>
                     Este desarrollo demostró el inmenso potencial de combinar la visión por computadora y el procesamiento del lenguaje natural para crear soluciones inclusivas de bajo costo. 
                 </p>

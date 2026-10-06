@@ -61,32 +61,32 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>GasTour</strong> es una solución de movilidad diseñada para conductores y viajeros que desean optimizar sus gastos de transporte. Al ingresar el origen, destino y el modelo de vehículo registrado, la aplicación calcula el rendimiento real de combustible (km/l), el volumen total de litros requeridos y el presupuesto financiero estimado para el viaje.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128694; Planificación de Rutas y Mapa Interactivo</h4>
+                        <h4>Planificación de Rutas y Mapa Interactivo</h4>
                         <p>Visualización del trayecto optimizado a través de un componente de mapa integrado con geolocalización y cálculo de distancia.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128663; Garaje de Vehículos Personalizado</h4>
+                        <h4>Garaje de Vehículos Personalizado</h4>
                         <p>Permite agregar múltiples vehículos especificando su rendimiento urbano/carretera y tipo de combustible (Magna, Premium, Diésel).</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128278; Historial de Rutas Guardadas</h4>
+                        <h4>Historial de Rutas Guardadas</h4>
                         <p>Almacena las rutas más frecuentes para una rápida reconsulta sin necesidad de volver a calcular datos.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128274; Autenticación JWT y Perfil</h4>
+                        <h4>Autenticación JWT y Perfil</h4>
                         <p>Gestión de sesión segura con almacenamiento de tokens bearer, actualización de contraseña y sincronización en la nube.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Arquitectura móvil basada en **MVVM (Model-View-ViewModel)** y diseño declarativo de interfaces con **Jetpack Compose**:
                 </p>
@@ -96,7 +96,7 @@
                     Utilicé <code>Retrofit</code> junto con <code>AuthInterceptor</code> para inyectar automáticamente el token de autorización JWT en cada petición HTTP hacia la API de backend.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // TokenManager y AuthInterceptor en Kotlin
 class AuthInterceptor(private val tokenManager: TokenManager) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -108,7 +108,7 @@ class AuthInterceptor(private val tokenManager: TokenManager) : Interceptor {
         return chain.proceed(request.build())
     }
 }
-                </div>
+                </code></pre>
 
                 <p><strong>2. Interfaz Declarativa moderna (Jetpack Compose):</strong></p>
                 <p>
@@ -117,7 +117,7 @@ class AuthInterceptor(private val tokenManager: TokenManager) : Interceptor {
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Impacto</h2>
+                <h2>Impacto</h2>
                 <p>
                     GasTour ayuda a los conductores a planificar viajes largos de forma inteligente, evitando sorpresas presupuestarias en las estaciones de servicio.
                 </p>

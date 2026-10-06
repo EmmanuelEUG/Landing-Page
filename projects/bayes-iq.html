@@ -59,33 +59,33 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>BayesIQ Analytics</strong> aplica las matemáticas de la inferencia bayesiana para calcular probabilidades a posteriori basadas en evidencias observadas y distribuciones a priori.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128200; Modelado Probabilístico Bayesiano</h4>
+                        <h4>Modelado Probabilístico Bayesiano</h4>
                         <p>Evaluación de modelos de probabilidad condicional P(A|B) para predicción de eventos futuros y estimación de parámetros.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#129518; Actualización de Creencias a Priori</h4>
+                        <h4>Actualización de Creencias a Priori</h4>
                         <p>Actualización iterativa del conocimiento del modelo a medida que se incorporan nuevas observaciones al dataset.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#129302; Integración con Machine Learning</h4>
+                        <h4>Integración con Machine Learning</h4>
                         <p>Conexión con clasificadores Naive Bayes de Scikit-Learn para tareas de procesamiento de texto y predicción discreta.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Desarrollado en <strong>Python</strong> utilizando librerías matemáticas como <code>scipy.stats</code> y <code>numpy</code> para el cálculo matricial de distribuciones Beta, Binomial y Gaussiana:
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 # Ejemplo conceptual de inferencia bayesiana en Python
 import numpy as np
 from scipy import stats
@@ -96,7 +96,7 @@ def calcular_posterior(prior_a, prior_b, exitos, total):
     posterior_b = prior_b + (total - exitos)
     dist = stats.beta(posterior_a, posterior_b)
     return dist.mean(), dist.interval(0.95)
-                </div>
+                </code></pre>
             </div>
         </div>
     </section>

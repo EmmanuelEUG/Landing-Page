@@ -59,32 +59,32 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>DentiHuesos</strong> es un software de escritorio desarrollado a la medida para simplificar la operación diaria de clínicas odontológicas. Reemplaza las bitácoras físicas en papel por un sistema digital centralizado que optimiza la atención al paciente y la administración financiera.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128100; Expediente Clínico de Pacientes</h4>
+                        <h4>Expediente Clínico de Pacientes</h4>
                         <p>Registro detallado de datos personales, historial médico, alergias, diagnósticos y tratamientos realizados a cada paciente.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128138; Control de Inventario y Medicamentos</h4>
+                        <h4>Control de Inventario y Medicamentos</h4>
                         <p>Monitoreo en tiempo real del stock de insumos odontológicos y fármacos, alertando cuando los niveles están próximos a agotarse.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128197; Agenda de Citas</h4>
+                        <h4>Agenda de Citas</h4>
                         <p>Programación dinámica de consultas médicas por especialista con estados de confirmación, cancelación y asistencias.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128179; Facturación y Cobros</h4>
+                        <h4>Facturación y Cobros</h4>
                         <p>Generación de notas de pago por servicios realizados y seguimiento del historial financiero de la clínica.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     El proyecto está desarrollado en <strong>C# (.NET Framework)</strong> siguiendo una arquitectura multitapa (UI, Lógica de Negocio y Acceso a Datos):
                 </p>
@@ -99,7 +99,7 @@
                     Implementé patrones de acceso a datos seguros utilizando <code>MySqlCommand</code> con parámetros para prevenir inyecciones SQL y garantizar la integridad transaccional de los expedientes médicos.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // Ejemplo de consulta parametrizada en C# ADO.NET
 using (MySqlConnection conn = new MySqlConnection(connectionString))
 {
@@ -113,11 +113,11 @@ using (MySqlConnection conn = new MySqlConnection(connectionString))
         cmd.ExecuteNonQuery();
     }
 }
-                </div>
+                </code></pre>
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Aprendizajes Destacados</h2>
+                <h2>Aprendizajes Destacados</h2>
                 <p>
                     Fortalecí mis conocimientos en programación orientada a objetos en C#, manejo de eventos en interfaces gráficas complejas y diseño de bases de datos relacionales orientadas al sector salud.
                 </p>

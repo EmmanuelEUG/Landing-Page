@@ -60,32 +60,32 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>VarroaDoseCalc</strong> nació de una necesidad real en el campo apícola. La <em>Varroa destructor</em> es el parásito más devastador para las colonias de abejas a nivel mundial, y su tratamiento debe ser preciso: una dosis insuficiente no elimina el parásito y una sobredosis puede dañar a las abejas o contaminar la miel.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#128290; Cálculo Preciso de Dosis</h4>
+                        <h4>Cálculo Preciso de Dosis</h4>
                         <p>Determina la cantidad exacta de principio activo (ácido oxálico, timol, ácido fórmico u otros) según el peso registrado de la colmena y el método de tratamiento seleccionado.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#127811; Múltiples Métodos de Tratamiento</h4>
+                        <h4>Múltiples Métodos de Tratamiento</h4>
                         <p>Compatible con los métodos más usados a nivel global: goteo sublimación, bandas acaricidas y vaporizadores de ácido oxálico.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128339; Guía Estacional de Aplicación</h4>
+                        <h4>Guía Estacional de Aplicación</h4>
                         <p>Sugiere el momento óptimo de tratamiento según la época del año, el ciclo de cría de la colonia y el nivel de infestación estimado.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128221; Historial de Aplicaciones</h4>
+                        <h4>Historial de Aplicaciones</h4>
                         <p>Registro de tratamientos anteriores por colmena para llevar una bitácora sanitaria completa del apiario.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Arquitectura <strong>MVVM</strong> con <strong>Jetpack Compose</strong> en un diseño completamente reactivo y desacoplado de la UI:
                 </p>
@@ -95,7 +95,7 @@
                     El <code>TreatmentMethod.kt</code> encapsula cada método de tratamiento como un objeto tipado con su fórmula de cálculo, límites de dosificación mínimos y máximos, y unidades de medida. El <code>VarroaDoseCalcViewModel</code> expone el cálculo al Composable a través de <code>StateFlow</code>.
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 // TreatmentMethod.kt — Objeto de método de tratamiento
 sealed class TreatmentMethod(
     val name: String,
@@ -111,7 +111,7 @@ sealed class TreatmentMethod(
         is Thymol -> hiveWeightKg * 0.3
     }
 }
-                </div>
+                </code></pre>
 
                 <p><strong>2. UI Declarativa con Material Design 3:</strong></p>
                 <p>
@@ -125,7 +125,7 @@ sealed class TreatmentMethod(
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Impacto Real</h2>
+                <h2>Impacto Real</h2>
                 <p>
                     VarroaDoseCalc elimina los errores de cálculo manual que pueden comprometer la salud de una colonia completa. Al digitalizar la dosimetría de tratamientos, permite a los apicultores artesanales e industriales cumplir con las normativas sanitarias de la SENASICA (México) sin necesidad de conocimientos veterinarios avanzados.
                 </p>

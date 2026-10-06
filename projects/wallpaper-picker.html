@@ -61,37 +61,37 @@
 
         <div class="blog-content">
             <div class="blog-section">
-                <h2>&#128161; ¿Qué hace el proyecto?</h2>
+                <h2>¿Qué hace el proyecto?</h2>
                 <p>
                     <strong>Wallpaper Picker</strong> es un selector de fondos de pantalla animados en video (archivos <code>.mp4</code>) adaptado a los estándares modernos de GNOME / libadwaita en el entorno de escritorio Wayland Hyprland.
                 </p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <h4>&#127916; Generación Automática de Miniaturas</h4>
+                        <h4>Generación Automática de Miniaturas</h4>
                         <p>Extrae fotogramas en el segundo 3 de cada video con <code>ffmpeg</code> y los almacena en caché para una rápida visualización en cuadrícula.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#9889; Aplicación Inmediata con mpvpaper</h4>
+                        <h4>Aplicación Inmediata con mpvpaper</h4>
                         <p>Al hacer clic en una tarjeta, destruye el proceso anterior de <code>mpvpaper</code> y lanza el video seleccionado sin congelar el escritorio.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#127912; Sincronización de Paleta de Colores (Caelestia)</h4>
+                        <h4>Sincronización de Paleta de Colores (Caelestia)</h4>
                         <p>Genera la paleta de colores de acento del sistema automáticamente a partir del fotograma del wallpaper seleccionado.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>&#128260; Persistencia al Reiniciar</h4>
+                        <h4>Persistencia al Reiniciar</h4>
                         <p>Guarda el último wallpaper elegido en <code>~/.config/wallpaper-picker/current</code> para restaurarlo automáticamente al encender el equipo.</p>
                     </div>
                 </div>
             </div>
 
             <div class="blog-section">
-                <h2>&#128736; ¿Cómo lo construí?</h2>
+                <h2>¿Cómo lo construí?</h2>
                 <p>
                     Construido usando bindings de <strong>PyGObject</strong> para GTK4 y <strong>libadwaita</strong>, aprovechando ejecutables del sistema Linux:
                 </p>
 
-                <div class="code-block">
+                <pre class="code-block"><code>
 # Extracción de miniaturas con FFmpeg y renderizado en mpvpaper
 import subprocess, pathlib
 
@@ -108,11 +108,11 @@ def apply_wallpaper(video_path, thumb_path):
     subprocess.Popen([
         "mpvpaper", "-o", "--loop-playlist --no-audio --panscan=1.0", "*", str(video_path)
     ])
-                </div>
+                </code></pre>
             </div>
 
             <div class="blog-section">
-                <h2>&#127942; Impacto</h2>
+                <h2>Impacto</h2>
                 <p>
                     Combina la fluidez visual de los entornos Linux modernos con una herramienta UI rápida que aprovecha la aceleración por hardware de la GPU.
                 </p>
