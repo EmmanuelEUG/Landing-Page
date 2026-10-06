@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas class="ambient-particles" aria-hidden="true"></canvas>
 
     <!-- HEADER / NAV -->
     <header>
@@ -53,6 +54,7 @@
             </div>
 
             <div class="sobre-mi-foto-wrapper">
+                <canvas class="hero-canvas" aria-hidden="true"></canvas>
                 <div class="sobre-mi-foto-marco">
                     <img class="perfil-img" src="./img/yo.png" alt="Fotografía de Emmanuel Urbina Guerrero">
                 </div>
@@ -473,6 +475,8 @@
         <p>&copy; 2026 Emmanuel Urbina Guerrero. Diseñado y desarrollado desde cero.</p>
     </footer>
 
-    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="./script.js" defer></script>
 </body>
 </html>
